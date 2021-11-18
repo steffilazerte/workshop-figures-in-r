@@ -1,0 +1,17 @@
+---
+title: "Slides"
+---
+
+```{r, include = FALSE}
+f <- list.files("_rmd/Handouts", full.names = TRUE)
+file.copy(f, "slides/")
+```
+
+> *To be posted*
+
+- Regular Slides
+- Answer Slides 
+
+
+<!-- - Regular Slides ([HTML]() | [PDF]()) -->
+<!-- - Answer Slides ([HTML]() | [PDF]()) -->

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Intro to R Through Figures</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Intro to R Through Figures</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Prep</a>
+</li>
+<li>
+  <a href="slides.html">Slides</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Intro to R Through Figures</h1>
+
+</div>
+
+
+<div id="welcome" class="section level1">
+<h1>Welcome!</h1>
+<p>I’m excited for the opportunity to share my love of R with you through this workshop. This site should give you all the details you need to get you ready to participate.</p>
+<p><strong>Date:</strong> Tuesday Nov 23rd 2021<br />
+<strong>Time:</strong> 2:30 - 5:00 pm (Pacific)<br />
+<strong>Where:</strong> Zoom (see UNBC Applied Analysis Hub email)</p>
+<p>We are going to be covering a lot in this workshop, so to give us a jump start, I’ve compiled some things you should have done before hand:</p>
+<ul>
+<li><a href="#install">Install R (Update R)</a></li>
+<li><a href="#rstudio">Install RStudio (Update RStudio)</a></li>
+<li><a href="#packages">Install a couple of packages</a></li>
+</ul>
+<blockquote>
+<p><strong>IMPORTANT!</strong>:<br />
+If you have any problems installing the software or packages, <a href="contact.html">please contact me</a> before hand so we can sort out any problems</p>
+</blockquote>
+<hr />
+</div>
+<div id="instructions" class="section level1">
+<h1>Instructions</h1>
+<div id="install" class="section level2">
+<h2>1. Install R (Update R)</h2>
+<blockquote>
+<p>Even if you already have R installed, <strong>please update it</strong>, so we’re all working with the same version</p>
+</blockquote>
+<p>Depending on your operating system, you can install R in one of the following ways:</p>
+<p><strong>Windows</strong></p>
+<ul>
+<li>Go to the Windows download page: <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a></li>
+<li>Download and install R for windows (the link at the top)</li>
+</ul>
+<p><strong>Mac</strong></p>
+<ul>
+<li>Go to the Mac OS X download page: <a href="https://cran.r-project.org/bin/macosx/" class="uri">https://cran.r-project.org/bin/macosx/</a></li>
+<li>Download and install the version that matches your Mac OS X</li>
+</ul>
+<p><strong>Linux: Debian/Ubuntu</strong></p>
+<ul>
+<li>Specific details: <a href="https://cran.r-project.org/bin/linux/ubuntu/README.html" class="uri">https://cran.r-project.org/bin/linux/ubuntu/README.html</a></li>
+<li>Add one of the CRAN repositories to you apt (otherwise your R will be out of date)</li>
+</ul>
+</div>
+<div id="rstudio" class="section level2">
+<h2>2. Install RStudio</h2>
+<blockquote>
+<p>Even if you already have RStudio installed, <strong>please update it</strong>, so we’re all working with the same version</p>
+</blockquote>
+<ul>
+<li>For all Operating systems (i.e., Windows, Mac Os, Linux, etc.) go to RStudio’s download page: <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a></li>
+<li>Download and install the <strong>installer</strong> that matches your system (i.e. select your link from the top options, not the Zip/Tarball options)</li>
+</ul>
+<p>Open RStudio <img src="https://d33wubrfki0l68.cloudfront.net/3099a8a5ab437c8cca2446dfb08383ecfca761ec/0377b/wp-content/uploads/2014/06/rstudio-ball.png" alt="RStudio Logo" style="height: 30px;"/> <strong>not R</strong> <img src="https://www.r-project.org/logo/Rlogo.png" alt="R Logo" style="height: 30px;"/>. RStudio automatically opens R for you in the ‘Console’ pane</p>
+<p><strong>Verify that your version of R by looking at the first line of the console (left or lower left pane), you should see something like this:</strong></p>
+<pre><code>## R version 4.1.2 (2021-11-01) -- Bird Hippie
+## Copyright (C) 2021 The R Foundation for Statistical Computing
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## 
+## R is free software and comes with ABSOLUTELY NO WARRANTY.
+## You are welcome to redistribute it under certain conditions.
+## Type &#39;license()&#39; or &#39;licence()&#39; for distribution details.
+## 
+##   Natural language support but running in an English locale
+## 
+## R is a collaborative project with many contributors.
+## Type &#39;contributors()&#39; for more information and
+## &#39;citation()&#39; on how to cite R or R packages in publications.
+## 
+## Type &#39;demo()&#39; for some demos, &#39;help()&#39; for on-line help, or
+## &#39;help.start()&#39; for an HTML browser interface to help.
+## Type &#39;q()&#39; to quit R.</code></pre>
+<p>The important line is the first one: R version 4.1.2 (2021-11-01) – Bird Hippie</p>
+</div>
+<div id="packages" class="section level2">
+<h2>3. Install packages</h2>
+<p>Packages are extensions or add-ons for R. You will use many different ones over the course of your work with R.</p>
+<p>You are going to install the <code>ggplot2</code>, <code>patchwork</code>, and <code>palmerpenguins</code> packages</p>
+<p>With code:</p>
+<p>Type in the following and hit enter</p>
+<pre class="r"><code>install.packages(c(&quot;ggplot2&quot;, &quot;patchwork&quot;, &quot;palmerpenguins&quot;))</code></pre>
+<p><strong>OR</strong></p>
+<p>With Menus:</p>
+<ul>
+<li>Click on the ‘Packages’ tab in the lower right hand corner</li>
+<li>Click on the ‘Install’ button right below the tab</li>
+<li>Type ‘ggplot2’ into the ‘Packages’ box, and click on ‘Install’ (repeat for the other packages)</li>
+</ul>
+<p><img src="figures/A1_packages_edit.png" alt="RStudio Packages Tab" style="height: 500px;"/></p>
+<ul>
+<li>This may take a while (you will see lots of download text in red in your console)</li>
+<li>When it’s finished, you should see a message similar this one to in the console (lower left hand pane)</li>
+</ul>
+<pre><code>* DONE (ggplot2)
+
+The downloaded source packages are in
+    ‘/tmp/RtmpACWq9S/downloaded_packages’
+&gt; </code></pre>
+<ul>
+<li>Test that your installation had no problems by typing <code>library(ggplot2)</code> into the console and hitting enter. You should just get a prompt (“&gt;”) with no messages.</li>
+</ul>
+<pre><code>&gt; library(ggplot2)
+&gt; </code></pre>
+<blockquote>
+<h2 id="problems">Problems?</h2>
+<ul>
+<li>If you already had R/RStudio installed, try removing them both and installing everything from scratch</li>
+<li>If you get an error about a problem installing a specific package, try installing that package invidiually (search for it in the install packages menu)</li>
+<li><a href="contact.html">Contact Steffi</a></li>
+</ul>
+</blockquote>
+<p><strong>Congratulations! Now you’re ready to get into the fun stuff :)</strong></p>
+<hr />
+<p>Updated 2021-11-18 10:12:45 CST</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
