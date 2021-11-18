@@ -48,8 +48,12 @@ for(i in seq_len(nrow(files))) {
   message("Make Small")
   system(glue("gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 ",
               "-dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH ",
-              "-sOutputFile='slides/{files$nice_file[i]}.pdf' ",
+              "-sOutputFile='slides/{files$nice_file[i]}_sm.pdf' ",
               "'slides/{files$nice_file[i]}.pdf'"))
+  
+  file.remove(glue("slides/{files$nice_file[i]}.pdf"))
+  file.rename(glue("slides/{files$nice_file[i]}_sm.pdf"),
+              glue("slides/{files$nice_file[i]}.pdf"))
   
   unlink(list.files(pattern = "_cache", full.names = TRUE), recursive = TRUE)
 }
