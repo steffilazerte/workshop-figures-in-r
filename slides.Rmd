@@ -10,7 +10,7 @@ file.copy(f, "slides/")
 > *Answers to be posted after the workshop*
 
 - Regular Slides ([HTML](slides/Intro to R through Figures.html) | [PDF](slides/Intro to R through Figures.pdf))
-- Answer Slides 
+- Answer Slides ([HTML](slides/Intro to R through Figures - answers.html) | [PDF](slides/Intro to R through Figures - answers.pdf))
 
 
 <!-- - Regular Slides ([HTML]() | [PDF]()) -->
