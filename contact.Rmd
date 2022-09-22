@@ -1,9 +1,0 @@
----
-title: "Contact"
----
-
-## Instructor
-
-- Stefanie LaZerte (<sel@steffilazerte.ca>)
-- <https://steffilazerte.ca>
-
