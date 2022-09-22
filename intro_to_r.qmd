@@ -1374,8 +1374,8 @@ ggsave(filename = "penguins_mass.pdf", plot = g, dpi = 300,
 
 
 ```{r, include = FALSE}
-unlink(here("_rmd/penguins_mass.pdf"))
-unlink(here("_rmd/penguins_mass.png"))
+unlink(here("penguins_mass.pdf"))
+unlink(here("penguins_mass.png"))
 ```
 
 ## Wrapping up: Common mistakes
