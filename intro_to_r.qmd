@@ -1,6 +1,6 @@
 ---
 params:
-  hide_answers: false
+  answers: "hidden"
 format: 
   revealjs:
     theme: [default, styles.scss]
@@ -30,15 +30,12 @@ execute:
 
 ```{r setup, include = FALSE, cache=FALSE}
 library(here)
-library(flair)
-library(glue)
 library(ggplot2)
 library(palmerpenguins)
 library(patchwork)
 options(width = 100)
 
-hide_answers <- params$hide_answers
-visibility <- dplyr::if_else(hide_answers, "hidden", "visible")
+visibility <- params$answers
 
 knitr::opts_chunk$set(dpi = 150, fig.width = 8, out.width = "90%",
                       fig.align = "center", fig.asp = 0.45)
@@ -1402,6 +1399,16 @@ unlink(here("_rmd/penguins_mass.png"))
 
 :::{.fragment}
 ### **Thank you!** {.spacer style="font-size: 150%"}
+
+ `r icons::fontawesome("github")` [steffilazerte](https://github.com/steffilazerte)<br>
+`r icons::fontawesome("twitter")` [@steffilazerte](https://twitter.com/steffilazerte)<br>
+`r icons::fontawesome("globe")` [steffilazerte.ca](https://steffilazerte.ca)<br>
+![](https://steffilazerte.ca/images/logo_eg.png){width=25%}
+
+
+:::{ .small .footnote}
+Slides created with Quarto on `r Sys.Date()`
+:::
 :::
 
 ## Your Turn!
