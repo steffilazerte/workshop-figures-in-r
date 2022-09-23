@@ -1,10 +1,12 @@
 # Answers
 quarto::quarto_render("intro_to_r.qmd", 
+                      cache_refresh = TRUE,
                       execute_params = list(answers = "visible"))
 file.rename("intro_to_r.html", "intro_to_r_answers.html")
 
 # No answers
 quarto::quarto_render("intro_to_r.qmd", 
+                      cache_refresh = TRUE,
                       execute_params = list(answers = "hidden"))
 
 

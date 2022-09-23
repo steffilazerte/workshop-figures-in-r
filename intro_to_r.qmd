@@ -761,10 +761,10 @@ ggplot(data = penguins, aes(x = sex)) +
 #| code-line-numbers: "6"
 
 # Create our own data frame
-species <- data.frame(species = c("Adelie", "Chinstrap", "Gentoo"),
-                      n = c(152, 68, 124))
+species_counts <- data.frame(species = c("Adelie", "Chinstrap", "Gentoo"),
+                             n = c(152, 68, 124))
 
-ggplot(data = species, aes(x = species, y = n)) +
+ggplot(data = species_counts, aes(x = species, y = n)) +
   geom_bar(stat = "identity")
 ```
 
@@ -1111,7 +1111,7 @@ g4 <- g + theme_dark() + labs(title = "g + theme_dark()")
 
 ## Customizing: Axes
 
-`scale_` + (`x` or `y`) + type (`contiuous`, `discrete`, `date`, `datetime`)
+`scale_` + (`x` or `y`) + type (`continuous`, `discrete`, `date`, `datetime`)
 
 - `scale_x_continuous()`
 - `scale_y_discrete()`

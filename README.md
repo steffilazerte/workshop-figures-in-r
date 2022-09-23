@@ -5,9 +5,12 @@ An introduction to R through the creation of figures with ggplot2!
 
 ## Workshop resources
 
-- Slides 
+- Slides (no answers)
   - [html](http://steffilazerte.ca/Figures-in-R/intro_to_r.html) (best)
   - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_sm.pdf)
+- Slides (answers)
+  - [html](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers.html) (best)
+  - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers_sm.pdf)
   
   
 ## Before the workshop
