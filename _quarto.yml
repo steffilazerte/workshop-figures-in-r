@@ -1,5 +1,8 @@
 project:
   title: "quarto_proj"
+  render: 
+    - "*.qmd"
+    - "!archive/"
 
-editor: visual
+editor: source
 

@@ -5,9 +5,11 @@
 <script src="intro_to_r_files/libs/quarto-html/popper.min.js"></script>
 <script src="intro_to_r_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="intro_to_r_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="intro_to_r_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-<link href="intro_to_r_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.613">
+<link href="intro_to_r_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="intro_to_r_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="intro_to_r_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="intro_to_r_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.2.335">
 
   <title>intro_to_r</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,10 +20,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -377,7 +384,7 @@
     }
   </style>
 </head>
-<body>
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
@@ -388,9 +395,13 @@
 <p><img data-src="https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/ggplot2_masterpiece.png" class="absolute" style="bottom: 10%; right: 0px; width: 60%; "></p>
 <!-- Need starting space on firs line to be with par -->
 <div class="small absolute" style="bottom: 0px; ">
-<p><svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <a href="https://github.com/steffilazerte">steffilazerte</a><br> <svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/steffilazerte"><span class="citation" data-cites="steffilazerte">@steffilazerte</span></a><br> <svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg> <a href="https://steffilazerte.ca">steffilazerte.ca</a><br> <img data-src="https://steffilazerte.ca/images/logo_eg.png" style="width:30.0%"></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/steffilazerte">steffilazerte</a><br>
+<i class="fa-brands fa-mastodon" aria-label="mastodon"></i> <a href="https://fosstodon.org/@steffilazerte">@steffilazerte@fosstodon.org</a><br>
+<i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="https://twitter.com/steffilazerte">@steffilazerte</a><br>
+<i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://steffilazerte.ca">steffilazerte.ca</a></p>
+<p><img data-src="https://steffilazerte.ca/images/logo_eg.png" style="width:30.0%"></p>
 </div>
-<p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations"><span class="citation" data-cites="allison_horst">@allison_horst</span></a></span></p>
+<p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></span></p>
 </section>
 <section id="this-is-me" class="slide level2" data-background-color="black" data-background-image="figures/office3.jpg">
 <h2>This is me!</h2>
@@ -428,8 +439,8 @@
 <h1>What is R?</h1>
 
 </section>
-<section id="r-is-programming-language" class="slide level2">
-<h2>R is Programming language</h2>
+<section id="r-is-a-programming-language" class="slide level2">
+<h2>R is a Programming language</h2>
 <blockquote>
 <p>A programming <strong>language</strong> is a way to give instructions in order to get a computer to do something</p>
 </blockquote>
@@ -494,7 +505,7 @@
 </figure>
 </div>
 <div class="fragment">
-<p>(I made these slides with <strong>R</strong>markdown)</p>
+<p><span class="footnote">(I made these slides with a mix of R and Quarto)</span></p>
 </div>
 </section>
 <section id="r-is-also-beautiful" class="slide level2">
@@ -576,14 +587,14 @@
 </div><div class="column fragment" style="width:50%;">
 <!-- -->
 <h3 id="for-example-1">For example:</h3>
-<div class="cell" data-layout-align="center" data-output-location="fragment" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-5_c603c04185c38b6591f529e692ca4766">
+<div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-5_8a062ffd0d49700373a658a522bd2b79">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.5</code></pre>
 </div>
 </div>
-<p><span class="absolute" style="top: 120px; right: 20px; "><strong>Code</strong></span> <span class="absolute" style="top: 160px; right: 20px; "><strong>Output</strong></span></p>
-<p><img data-src="figures/script.png" class="absolute" style="bottom: 0px; right: 10px; width: 40%; "> <span class="absolute" style="top: 230px; right: 20px; "><strong>Script</strong></span></p>
+<p><span class="absolute" style="top: 150px; right: 20px; "><strong>Code</strong></span> <span class="absolute" style="top: 190px; right: 20px; "><strong>Output</strong></span></p>
+<p><img data-src="figures/script.png" class="absolute" style="bottom: 0px; right: 125px; width: 38%; "> <span class="absolute" style="top: 230px; right: 20px; "><strong>Script</strong></span></p>
 </div>
 </div>
 </section>
@@ -591,22 +602,27 @@
 <h2>RStudio vs.&nbsp;R</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 12.5%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 31.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="https://d33wubrfki0l68.cloudfront.net/3099a8a5ab437c8cca2446dfb08383ecfca761ec/0377b/wp-content/uploads/2014/06/rstudio-ball.png"></p>
+<p></p><figcaption>RStudio</figcaption><p></p>
+</figure>
+</div>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 12.5%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 31.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="https://www.r-project.org/logo/Rlogo.png"></p>
+<p></p><figcaption>R</figcaption><p></p>
+</figure>
+</div>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 12.5%;justify-content: center;">
 <p>&nbsp;</p>
@@ -681,7 +697,10 @@
 <li>These are objects with names (like functions)</li>
 <li>We can use <code>&lt;-</code> to assign values to objects (assignment)</li>
 </ul>
-<div class="columns">
+<div class="spacer">
+
+</div>
+<div class="columns spacer">
 <div class="column" style="width:45%;">
 <h3 id="vector-1-dimension">Vector (1 dimension)</h3>
 <div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-9_4f16f9b7bd5a52b99ae43ed57fb3b940">
@@ -727,17 +746,21 @@
 <span id="cb19-6"><a href="#cb19-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li>Copy/paste or type this into the script window in RStudio
+<div class="space-list spacer">
+<ol type="1">
+<li><strong>Copy/paste or type</strong> this into the <strong>script</strong> window in RStudio
 <ul>
 <li>You may have to go to File &gt; New File &gt; R Script</li>
 </ul></li>
-<li>Click anywhere on the first line of code</li>
-<li>Use the ‘Run’ button to run this code, <strong>or</strong> use the short-cut <code>Ctrl-Enter</code>
+<li>Click on the <strong>first line of code</strong></li>
+<li><strong>Run the code</strong>
 <ul>
-<li>Repeat until all the code has run</li>
+<li>Click ‘Run’ button (upper right) <strong>or</strong></li>
+<li>Use the short-cut <code>Ctrl-Enter</code></li>
 </ul></li>
-</ul>
+<li><strong>Repeat</strong> until all the code has run</li>
+</ol>
+</div>
 </section>
 <section id="first-code-1" class="slide level2">
 <h2>First Code</h2>
@@ -750,7 +773,7 @@
 <span id="cb20-6"><a href="#cb20-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb20-7"><a href="#cb20-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -766,7 +789,7 @@
 <span id="cb22-6"><a href="#cb22-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb22-7"><a href="#cb22-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -783,7 +806,7 @@
 <span id="cb24-6"><a href="#cb24-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -800,7 +823,7 @@
 <span id="cb26-6"><a href="#cb26-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb26-7"><a href="#cb26-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -817,7 +840,7 @@
 <span id="cb28-6"><a href="#cb28-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb28-7"><a href="#cb28-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -834,7 +857,7 @@
 <span id="cb30-6"><a href="#cb30-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb30-7"><a href="#cb30-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -851,7 +874,7 @@
 <span id="cb32-6"><a href="#cb32-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb32-7"><a href="#cb32-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -874,7 +897,7 @@
 </div>
 </div>
 </div>
-<p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations"><span class="citation" data-cites="allison_horst">@allison_horst</span></a></span></p>
+<p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></span></p>
 </section>
 <section id="our-data-set-palmer-penguins-1" class="slide level2">
 <h2>Our data set: Palmer Penguins!</h2>
@@ -895,11 +918,11 @@
  8 Adelie  Torgersen           39.2          19.6               195        4675 male    2007
  9 Adelie  Torgersen           34.1          18.1               193        3475 &lt;NA&gt;    2007
 10 Adelie  Torgersen           42            20.2               190        4250 &lt;NA&gt;    2007
-# … with 334 more rows</code></pre>
+# ℹ 334 more rows</code></pre>
 </div>
 </div>
 <p><img data-src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/logo.png" class="absolute" style="top: 0px; right: 0px; width: 12%; "></p>
-<p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations"><span class="citation" data-cites="allison_horst">@allison_horst</span></a></span></p>
+<p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></span></p>
 <div class="columns">
 <div class="column" style="width:30%;">
 <p><img data-src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png"></p>
@@ -964,7 +987,10 @@
 <h3 id="libraryggplot2"><code>library(ggplot2)</code></h3>
 <ul>
 <li>Load the <code>ggplot2</code> package</li>
-<li>Now we have access to the <code>ggplot()</code> function <span class="small">(among others)</span></li>
+<li>Now we have access to the <code>ggplot()</code> function
+<ul>
+<li><span class="small">(and <code>aes()</code> and <code>geom_point()</code> etc.)</span></li>
+</ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-22_15ecfee04cf53b5acafd6afc9e0bf143">
@@ -1135,9 +1161,9 @@
 <!-- -->
 <h3 id="order-matters">Order matters</h3>
 <div class="small">
-<div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-33_c4f11e8a114d97fb31003fca49aa6bc0">
+<div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-33_0aa23425d31f88af8c78f17e6903f2ec">
 <div class="sourceCode cell-code" id="cb47" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1207,7 +1233,7 @@
 </div>
 <img data-src="intro_to_r_files/figure-revealjs/unnamed-chunk-38-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><div class="fragment">
 <blockquote>
-<p>(<strong>Note</strong>: We only need 1 aesthetic here)</p>
+<p><strong>Note</strong>: We only need 1 aesthetic here</p>
 </blockquote>
 </div>
 </section>
@@ -1296,7 +1322,7 @@
 
 </div>
 <img data-src="intro_to_r_files/figure-revealjs/unnamed-chunk-47-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><blockquote>
-<p>Split plots by <strong>two</strong> grouping variables)</p>
+<p>Split plots by <strong>two</strong> grouping variables</p>
 </blockquote>
 </section>
 <section id="your-turn-create-this-plot-2" class="slide level2">
@@ -1498,21 +1524,14 @@
 <h2>Customizing: Aesthetics</h2>
 <h3 id="using-scales-1">Using scales</h3>
 <p>Or be very explicit:</p>
-<div class="small">
-<div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-69_8c97449a8c79045e486cd81cca150a1b">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>g <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">name =</span> <span class="st">"Type"</span>,</span>
-<span id="cb81-2"><a href="#cb81-2"></a>                        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"purple"</span>, <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"yellow"</span>),</span>
-<span id="cb81-3"><a href="#cb81-3"></a>                        <span class="at">na.value =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="intro_to_r_files/figure-revealjs/unnamed-chunk-69-1.png" style="width:90.0%"></p>
-</figure>
+<div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-69_253a3f9d309e9ee22edc7bb063f69149">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>g <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(</span>
+<span id="cb81-2"><a href="#cb81-2"></a>  <span class="at">name =</span> <span class="st">"Type"</span>,</span>
+<span id="cb81-3"><a href="#cb81-3"></a>  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"purple"</span>, <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"yellow"</span>),</span>
+<span id="cb81-4"><a href="#cb81-4"></a>  <span class="at">na.value =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</section>
+<img data-src="intro_to_r_files/figure-revealjs/unnamed-chunk-69-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="customizing-aesthetics-2" class="slide level2">
 <h2>Customizing: Aesthetics</h2>
 <h3 id="for-colours-consider-colour-blind-friendly-scale">For colours, consider colour-blind-friendly scale</h3>
@@ -1719,41 +1738,45 @@
 <span id="cb97-7"><a href="#cb97-7"></a>       <span class="at">height =</span> <span class="dv">80</span>, <span class="at">width =</span> <span class="dv">129</span>, <span class="at">units =</span> <span class="st">"mm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="wrapping-up-common-mistakes" class="slide level2">
+<section id="wrapping-up-common-mistakes" class="slide level2 space-list">
 <h2>Wrapping up: Common mistakes</h2>
 <ul>
 <li>The <strong>package</strong> is <code>ggplot</code><strong>2</strong>, the function is just <strong><code>ggplot()</code></strong></li>
 <li>Did you remember to put the <strong><code>+</code></strong> at the <strong>end</strong> of the line?</li>
-<li>Order matters! If you’re using custom <code>theme()</code>’s, make sure you put these lines <strong>after</strong> bundled themes like <code>theme_bw()</code>, or they will be overwritten</li>
+<li><strong>Order matters!</strong>
+<ul>
+<li>If you’re using custom <code>theme()</code>’s, make sure you put these lines <strong>after</strong> bundled themes like <code>theme_bw()</code>, or they will be overwritten</li>
+</ul></li>
 <li>Variables like ‘year’ are treated as continuous, but are really categories
 <ul>
-<li>Wrap them in <code>factor()</code>, i.e.&nbsp;<code>ggplot(data = penguins, aes(x = factor(year), y = body_mass_g))</code></li>
+<li>Wrap them in <code>factor()</code></li>
+<li>e.g.&nbsp;<code>ggplot(data = penguins, aes(x = factor(year), y = body_mass_g))</code></li>
 </ul></li>
 </ul>
 </section>
-<section id="wrapping-up-further-reading-all-free" class="slide level2">
+<section id="wrapping-up-further-reading-all-free" class="slide level2 space-list">
 <h2>Wrapping up: Further reading (all <strong>Free</strong>!)</h2>
 <ul>
 <li>RStudio &gt; Help &gt; Cheatsheets &gt; Data Visualization with ggplot2</li>
-<li><a href="https://ggplot2-book.org">ggplot2 book v3</a>
+<li><a href="https://ggplot2-book.org">ggplot2 book v3</a> <span class="small">(Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen)</span></li>
+<li><a href="http://www.cookbook-r.com">Cookbook for R</a> <span class="small">(Winston Chang)</span></li>
+<li><a href="https://r4ds.had.co.nz">R for Data Science</a> <span class="small">(Hadley Wickham &amp; Garrett Grolemund)</span>
 <ul>
-<li>By Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen</li>
-</ul></li>
-<li><a href="http://www.cookbook-r.com">Cookbook for R</a> - by Winston Chang
-<ul>
-<li>See also R Graphics Cookbook by Winston Chang</li>
-</ul></li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a>
-<ul>
-<li><a href="http://r4ds.had.co.nz/data-visualisation.html">Data Visualization</a></li>
+<li><a href="http://r4ds.had.co.nz/data-visualisation.html">Chp 3 Data Visualization</a></li>
 </ul></li>
 </ul>
 <div class="fragment">
 <!-- -->
 <h3 class="spacer" style="font-size: 150%" id="thank-you"><strong>Thank you!</strong></h3>
-<p><svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <a href="https://github.com/steffilazerte">steffilazerte</a><br> <svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/steffilazerte"><span class="citation" data-cites="steffilazerte">@steffilazerte</span></a><br> <svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg> <a href="https://steffilazerte.ca">steffilazerte.ca</a><br> <img data-src="https://steffilazerte.ca/images/logo_eg.png" style="width:25.0%"></p>
+<div class="small absolute" style="bottom: 0px; ">
+<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/steffilazerte">steffilazerte</a><br>
+<i class="fa-brands fa-mastodon" aria-label="mastodon"></i> <a href="https://fosstodon.org/@steffilazerte">@steffilazerte@fosstodon.org</a><br>
+<i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="https://twitter.com/steffilazerte">@steffilazerte</a><br>
+<i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://steffilazerte.ca">steffilazerte.ca</a></p>
+<p><img data-src="https://steffilazerte.ca/images/logo_eg.png" style="width:30.0%"></p>
+</div>
 <div class="small footnote">
-<p>Slides created with Quarto on 2022-09-23</p>
+<p>Slides created with Quarto on 2023-04-03</p>
 </div>
 </div>
 </section>
@@ -1990,12 +2013,15 @@
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -2006,13 +2032,6 @@
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -2028,6 +2047,24 @@
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -2046,7 +2083,24 @@
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -2076,31 +2130,50 @@
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>

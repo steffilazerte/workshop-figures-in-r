@@ -1,13 +1,13 @@
 /*-- scss:defaults --*/
-$presentation-font-size-root: 30px;
-
-$presentation-h1-font-size: 2em;
+$presentation-h1-font-size: 200%;
 $presentation-h1-text-shadow: 2px 2px #808080;
 
-$presentation-h3-font-size: 1em;
+$presentation-h2-font-size: 200%;
+$presentation-h3-font-size: 130%;
 
 $presentation-heading-text-shadow: 1px 1px #808080;
 $presentation-heading-color: #1f508c;
+$code-color: #1f508c;
 
 $code-block-font-size: 0.65em;
 $code-block-bg: #ebe8e8;
@@ -18,6 +18,12 @@ $code-highlight-color: yellow;
 
 /*-- scss:rules --*/
 
+figcaption {
+  font-size: 110%;
+  text-align: center;
+  font-weight: bold;
+}
+
 .highlight-line {
   background-color: lighten($code-highlight-color, 30%);
 }
@@ -25,6 +31,7 @@ $code-highlight-color: yellow;
 .reveal h3 {
   text-shadow: none;
   color: black;
+  margin-top: 20px;
 }
 
 .reveal div.sourceCode {
@@ -34,11 +41,6 @@ $code-highlight-color: yellow;
 .reveal .cell-output pre code {
   background: $code-block-bg;
   margin-top: 5px;
-}
-
-.reveal .slide ul li,
-.reveal .slide ol li {
-  margin-top: 0 !important;
 }
 
 .reveal .slide blockquote {
@@ -56,8 +58,25 @@ $code-highlight-color: yellow;
   margin-bottom: 15px;
 }
 
+/* remove list spacing unless explicit */
+.reveal .slide li {
+  margin-top: 0 !important;
+}
+
+.space-list ul > li,
+.space-list ol > li {
+  margin-bottom: 0.5em !important;
+}
+
+.space-list li > ul > li,
+.space-list li > ul > li {
+  margin-bottom: 0 !important;
+}
 
 /* -- Custom classes */
+
+
+
 
 
 .spacer {
