@@ -24,7 +24,7 @@ An introduction to R through the creation of figures with ggplot2!
 
 ### Resources
 - Slides (no answers, answers are posted after)
-  - [html](http://steffilazerte.ca/Figures-in-R/intro_to_r.html) (best)
+  - [html](http://steffilazerte.ca/Figures-in-R/) (best)
   - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_sm.pdf)
 <!--
 - Slides (answers)
