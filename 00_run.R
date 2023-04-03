@@ -8,6 +8,7 @@ file.rename("intro_to_r.html", "intro_to_r_answers.html")
 quarto::quarto_render("intro_to_r.qmd", 
                       cache_refresh = TRUE,
                       execute_params = list(answers = "hidden"))
+file.rename("intro_to_r.html", "index.html")
 
 
 
@@ -16,7 +17,7 @@ pagedown::chrome_print("intro_to_r_answers.html",
                        output = "intro_to_r_answers.pdf",
                        extra_args = "--font-render-hinting=none")
 
-pagedown::chrome_print("intro_to_r.html",
+pagedown::chrome_print("index.html",
                        output = "intro_to_r.pdf",
                        extra_args = "--font-render-hinting=none")
 
