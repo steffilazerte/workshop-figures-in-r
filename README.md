@@ -35,10 +35,10 @@ This GitHub repository holds all the information relating to our workshop.
 -->
 
 ### Before the workshop
-- [Install R](https://muug.ca/mirror/cran/)
-  - (**update R** to the newest version, if already installed)
+- [Install R](https://muug.ca/mirror/cran/) 
+  (**update R** to the newest version, if already installed)
 - [Install RStudio](https://www.rstudio.com/products/rstudio/download/)
-  - (**update RStudio** to the newest version, if it's already installed)
+  (**update RStudio** to the newest version, if it's already installed)
 - Install R packages for following along
   - `ggplot2`
   - `patchwork`
