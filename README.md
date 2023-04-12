@@ -1,11 +1,34 @@
-# Workshop: Figures in R
+## Figures in R 
 
-An introduction to R through the creation of figures with ggplot2!
+*An introduction to R through the creation of figures with ggplot2!*
 
-### Next offering
-- [TWS Manitoba Chapter](http://www.tws-mb.com/events/2023/04/18/r-workshop)
-- Tues April 18th 2023 6-8:30pm Central
+*[TWS Manitoba Chapter](http://www.tws-mb.com/events/2023/04/18/r-workshop) Workshop*
+**Tues April 18th 2023 6-8:30pm Central**
 - No cost for members but limited space
+
+Welcome! 
+
+Join Steffi for this gentle introduction to R through the creation of figures. 
+Good for those with no R experience and those who want to learn more about using 
+the ggplot2 R package.
+
+This GitHub repository holds all the information relating to our workshop.
+
+> **Important!**
+>
+> Make sure you're ready for the workshop by following the **Before the workshop** instructions. Please [email me](mailto:sel@steffilazerte.ca) if you run into any problems.
+>
+> Take care to update both R and RStudio, in particular.
+
+### Workshop Resources
+- Slides (no answers, answers are posted after)
+  - [html](http://steffilazerte.ca/Figures-in-R/) (best)
+  - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_sm.pdf)
+<!--
+- Slides (answers)
+  - [html](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers.html) (best)
+  - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers_sm.pdf)
+-->
 
 ### Before the workshop
 - [Install OR Update R](https://muug.ca/mirror/cran/)
@@ -21,13 +44,3 @@ An introduction to R through the creation of figures with ggplot2!
   ```         
   install.packages(c("ggplot2", "patchwork", "palmerpenguins"))
   ```
-
-### Resources
-- Slides (no answers, answers are posted after)
-  - [html](http://steffilazerte.ca/Figures-in-R/) (best)
-  - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_sm.pdf)
-<!--
-- Slides (answers)
-  - [html](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers.html) (best)
-  - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers_sm.pdf)
--->
