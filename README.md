@@ -1,10 +1,12 @@
-## Figures in R 
+# Figures in R 
 
 *An introduction to R through the creation of figures with ggplot2!*
 
-*[TWS Manitoba Chapter](http://www.tws-mb.com/events/2023/04/18/r-workshop) Workshop*
-**Tues April 18th 2023 6-8:30pm Central**
-- No cost for members but limited space
+*[TWS Manitoba Chapter](http://www.tws-mb.com/events/2023/04/18/r-workshop) Workshop*  
+**Tues April 18th 2023 6-8:30pm Central**  
+No cost for members but limited space
+
+---
 
 Welcome! 
 
@@ -20,6 +22,8 @@ This GitHub repository holds all the information relating to our workshop.
 >
 > Take care to update both R and RStudio, in particular.
 
+---
+
 ### Workshop Resources
 - Slides (no answers, answers are posted after)
   - [html](http://steffilazerte.ca/Figures-in-R/) (best)
@@ -31,8 +35,9 @@ This GitHub repository holds all the information relating to our workshop.
 -->
 
 ### Before the workshop
-- [Install OR Update R](https://muug.ca/mirror/cran/)
-- [Install OR Update RStudio](https://www.rstudio.com/products/rstudio/download/)
+- [Install R](https://muug.ca/mirror/cran/)
+  - (**update R** to the newest version, if already installed)
+- [Install RStudio](https://www.rstudio.com/products/rstudio/download/)
   - (**update RStudio** to the newest version, if it's already installed)
 - Install R packages for following along
   - `ggplot2`
