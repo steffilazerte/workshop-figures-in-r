@@ -1,14 +1,14 @@
+# Before ------------
+
 # Answers
-quarto::quarto_render("intro_to_r.qmd", 
+quarto::quarto_render("intro_to_r.qmd", output_file = "intro_to_r_answers.html",
                       cache_refresh = TRUE,
                       execute_params = list(answers = "visible"))
-file.rename("intro_to_r.html", "intro_to_r_answers.html")
 
 # No answers
-quarto::quarto_render("intro_to_r.qmd", 
+quarto::quarto_render("intro_to_r.qmd", output_file = "index.html",
                       cache_refresh = TRUE,
                       execute_params = list(answers = "hidden"))
-file.rename("intro_to_r.html", "index.html")
 
 
 
@@ -30,3 +30,10 @@ system(glue::glue("gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 ",
                   "-dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH ",
                   "-sOutputFile='intro_to_r_sm.pdf' ",
                   "'intro_to_r.pdf'"))
+
+
+# After --------------
+
+# Post answers
+
+usethis::use_github_release()

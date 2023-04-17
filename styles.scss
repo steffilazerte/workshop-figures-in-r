@@ -1,4 +1,6 @@
 /*-- scss:defaults --*/
+$presentation-title-slide-text-align: left;
+
 $presentation-h1-font-size: 200%;
 $presentation-h1-text-shadow: 2px 2px #808080;
 
@@ -18,6 +20,26 @@ $code-highlight-color: yellow;
 
 /*-- scss:rules --*/
 
+.date {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 80%;
+  color: grey;
+}
+
+.caption {
+  text-align: center;
+}
+
+.hide-title h2 {
+  opacity:0;
+}
+
+.reveal .title {
+  padding-top: 100px;
+}
+
 figcaption {
   font-size: 110%;
   text-align: center;
@@ -27,8 +49,11 @@ figcaption {
 .highlight-line {
   background-color: lighten($code-highlight-color, 30%);
 }
+.reveal pre code.has-line-highlights > span:not(.highlight-line){
+  opacity: 0.8 !important;
+}
 
-.reveal h3 {
+.reveal h3, .reveal h4{
   text-shadow: none;
   color: black;
   margin-top: 20px;
@@ -40,14 +65,18 @@ figcaption {
 
 .reveal .cell-output pre code {
   background: $code-block-bg;
-  margin-top: 5px;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  max-height: 600px;
 }
 
 .reveal .slide blockquote {
+  border-left: 0;
   background-color: $selection-bg;
-  border-left: 10px solid $presentation-heading-color;
-  padding-left: 0.5em;
   color: inherit;
+  padding: 0.5em;
+  box-shadow: 5px 5px #808080;
+  text-align: center;
 }
 
 .reveal pre.sourceCode code {
@@ -75,9 +104,26 @@ figcaption {
 
 /* -- Custom classes */
 
+/*https://revealjs.com/fragments/*/
+.fragment.highlight-bold {
+  opacity: 1 !important;
+  visibility: inherit !important;
+}
+.fragment.highlight-bold.visible {
+  font-weight: bold;
+}
 
-
-
+.center {
+  text-align:center;
+}
+.left {
+  text-align:left;
+}
+.center-box {
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1;
+}
 
 .spacer {
   margin-top: 20px;
@@ -88,8 +134,12 @@ figcaption {
   font-size: 80%;
 }
 
-.big {
+.large {
   font-size: 120%;
+}
+
+.hang {
+  margin-left: 1.5em;
 }
 
 .box {
@@ -104,6 +154,10 @@ figcaption {
   border-bottom: none;
 }
 
+.reveal .left table {
+  margin: 0;
+}
+
 .reveal .slide .squish li {
   margin-top: 0.2em;
   margin-bottom: 0.1em;
@@ -115,16 +169,19 @@ figcaption {
   color: grey;
   font-size: 80%;
   text-align: right;
-  right:0;
-  bottom:0;
+  right: 0;
+  bottom: 0;
 }
 
 .note {
   background-color: $selection-bg;
   /*border-left: 10px solid $presentation-heading-color;*/
-  padding-left: 0.5em;
+  margin-top: 1em;
+  padding: 0.5em;
   color: inherit;
   padding: 0.5em;
   box-shadow: 5px 5px #808080;
   text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

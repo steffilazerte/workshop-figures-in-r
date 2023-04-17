@@ -11,7 +11,8 @@
 <link href="intro_to_r_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.335">
 
-  <title>intro_to_r</title>
+  <meta name="dcterms.date" content="2023-04-17">
+  <title>Creating Figures as an Intro to R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -388,29 +389,79 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" data-background-image="figures/horst_ggplot2.png" data-background-position="85% 80%" data-background-size="50%" class="center">
+  
+    <p class="absolute" style="top:0">TWS 2023</p>
+    
+    
+  <h1 class="title" style="padding-top: 30px">Creating Figures as an Intro to R</h1>
+    <h3 class="subtitle" style="padding-top:5px;"><strong>Using the <code>ggplot2</code> package</strong></h3>
+    
+    <p style="font-size:70%; padding-top: 250px">
+    <i class="fa-brands fa-github"></i> <a href="https://github.com/steffilazerte">steffilazerte</a><br>
+    <i class="fa-brands fa-mastodon"></i> <a href="https://fosstodon.org/@steffilazerte">@steffilazerte@fosstodon.org</a><br>
+    <i class="fa-brands fa-twitter"></i> <a href="https://twitter.com/steffilazerte">@steffilazerte</a><br>
+    <i class="fa-solid fa-globe"></i> <a href="https://steffilazerte.ca">steffilazerte.ca</a><br>
+    <img src="figures/steffi_logo.png" width="30%">
+  </p>
+    
+    
+    
+    <p class="date">Compiled: 2023-04-17</p>
+  </section>
+<section>
+<section id="preamble" class="title-slide slide level1 center">
+<h1>Preamble</h1>
 
-<section id="creating-figures-as-an-intro-to-r" class="slide level2">
-<h2>Creating Figures as an Intro to R</h2>
-<h3 id="using-the-ggplot2-package">Using the <code>ggplot2</code> package</h3>
-<p><img data-src="https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/ggplot2_masterpiece.png" class="absolute" style="bottom: 10%; right: 0px; width: 60%; "></p>
-<!-- Need starting space on firs line to be with par -->
-<div class="small absolute" style="bottom: 0px; ">
-<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/steffilazerte">steffilazerte</a><br>
-<i class="fa-brands fa-mastodon" aria-label="mastodon"></i> <a href="https://fosstodon.org/@steffilazerte">@steffilazerte@fosstodon.org</a><br>
-<i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="https://twitter.com/steffilazerte">@steffilazerte</a><br>
-<i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://steffilazerte.ca">steffilazerte.ca</a></p>
-<p><img data-src="https://steffilazerte.ca/images/logo_eg.png" style="width:30.0%"></p>
+</section>
+<section id="online-workshops-can-be-challenging" class="slide level2">
+<h2>Online workshops can be challenging</h2>
+<div class="fragment">
+<!-- -->
+<h3 id="consider-keeping-your-video-on-if-possible">Consider keeping your video on <span class="small">(if possible)</span></h3>
+<ul>
+<li>Kids? Pets? Spouses? No problem</li>
+<li>But ultimately, you need be comfortable! <span class="small">(and you absolutely have the right to privacy)</span></li>
+</ul>
 </div>
-<p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></span></p>
+<div class="fragment">
+<!-- -->
+<h3 id="interrupt-me">Interrupt me!</h3>
+<ul>
+<li>Generally keep yourself muted but un-mute anytime to ask questions</li>
+</ul>
+</div>
+<div class="fragment">
+<!-- -->
+<h3 id="ask-questions">Ask Questions!</h3>
+<ul>
+<li>Group trouble-shooting is really valuable</li>
+<li>If you have a problem, others may also (or may have it in the future)</li>
+</ul>
+</div>
+<div class="fragment">
+<!-- -->
+<h3 id="screen-sharing">Screen-sharing</h3>
+<ul>
+<li>I may ask you to share your screen with the group <span class="small">(feel free to decline)</span></li>
+<li>For privacy, close your email etc. Or just share your RStudio window</li>
+</ul>
+</div>
 </section>
-<section id="this-is-me" class="slide level2" data-background-color="black" data-background-image="figures/office3.jpg">
-<h2>This is me!</h2>
-</section>
-<section id="these-are-my-creatures" class="slide level2" data-background-color="black" data-background-image="figures/creatures.jpg">
-<h2>These are my creatures</h2>
+<section id="this-is-me-and-my-creatures" class="slide level2" data-background-color="black" data-background-image="figures/creatures.jpg">
+<h2>This is me and my creatures</h2>
 </section>
 <section id="this-is-my-garden" class="slide level2" data-background-color="black" data-background-image="figures/garden.jpg">
 <h2>This is my garden</h2>
+</section>
+<section id="what-about-you" class="slide level2">
+<h2>What about you?</h2>
+<ul>
+<li>Name</li>
+<li>Background (Role, Area of study, etc.)</li>
+<li>Familiarity with R or Programming</li>
+<li>Creatures (furry, feathery, scaley, green or otherwise)?</li>
+</ul>
 </section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
@@ -433,7 +484,7 @@
 </blockquote>
 </div>
 </div>
-</section>
+</section></section>
 <section>
 <section id="what-is-r" class="title-slide slide level1 center">
 <h1>What is R?</h1>
@@ -548,7 +599,6 @@
 </div>
 <p><span class="footnote">David Whittaker</span></p>
 <div class="fragment">
-<!-- ![:box 50%, 80%, 75%](<strong>Moral of the story?</strong><br>Make friends, code in groups, learn together and don't beat yourself up) -->
 <blockquote>
 <p><strong>Moral of the story?</strong><br> Make friends, code in groups, learn together and don’t beat yourself up</p>
 </blockquote>
@@ -602,29 +652,29 @@
 <h2>RStudio vs.&nbsp;R</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 12.5%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 11.1%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 31.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 27.8%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://d33wubrfki0l68.cloudfront.net/3099a8a5ab437c8cca2446dfb08383ecfca761ec/0377b/wp-content/uploads/2014/06/rstudio-ball.png"></p>
+<p><img data-src="figures/RStudio-Ball.png"></p>
 <p></p><figcaption>RStudio</figcaption><p></p>
 </figure>
 </div>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 12.5%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 11.1%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 31.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 38.9%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://www.r-project.org/logo/Rlogo.png"></p>
+<p><img data-src="figures/R.png"></p>
 <p></p><figcaption>R</figcaption><p></p>
 </figure>
 </div>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 12.5%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 11.1%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
 </div>
@@ -890,10 +940,10 @@
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 16.7%;justify-content: center;">
-<p><img data-src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/logo.png"></p>
+<p><img data-src="figures/hex_palmerpenguins.png"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 83.3%;justify-content: center;">
-<p><img data-src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png"></p>
+<p><img data-src="figures/horst_lter_penguins.png"></p>
 </div>
 </div>
 </div>
@@ -921,14 +971,15 @@
 # ℹ 334 more rows</code></pre>
 </div>
 </div>
-<p><img data-src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/logo.png" class="absolute" style="top: 0px; right: 0px; width: 12%; "></p>
+<p><img data-src="figures/hex_palmerpenguins.png" class="absolute" style="top: 0px; right: 0px; width: 16%; "></p>
 <p><span class="footnote">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></span></p>
 <div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png"></p>
-</div><div class="column fragment" style="width:70%;">
+<div class="column" style="width:35%;">
+<p><img data-src="figures/horst_lter_penguins.png"></p>
+</div><div class="column fragment" style="width:65%;">
 <blockquote>
-<p>Your turn! Run this code and look at the output in the console</p>
+<p><strong>Your turn!</strong></p>
+<p>Run this code and look at the output in the console</p>
 </blockquote>
 </div>
 </div>
@@ -972,6 +1023,7 @@
 </div>
 </div>
 </div>
+<p><img data-src="figures/hex_palmerpenguins.png" class="absolute" style="top: 0px; right: 0px; width: 16%; "></p>
 </section>
 <section id="break-it-down-1" class="slide level2">
 <h2>Break it down</h2>
@@ -1004,6 +1056,7 @@
 </div>
 </div>
 </div>
+<p><img data-src="figures/hex_ggplot2.png" class="absolute" style="top: 0px; right: 0px; width: 16%; "></p>
 </section>
 <section id="break-it-down-2" class="slide level2">
 <h2>Break it down</h2>
@@ -1249,7 +1302,7 @@
 <section id="geoms-barplots-1" class="slide level2">
 <h2>Geoms: Barplots</h2>
 <h3 id="you-can-also-provide-the-counts">You can also provide the counts</h3>
-<div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-40_00746e8f78c703937130d96f9320976e">
+<div class="cell" data-layout-align="center" data-hash="intro_to_r_cache/revealjs/unnamed-chunk-40_1a592e5ac2a07995fe90e9114efedc93">
 <div class="sourceCode cell-code" id="cb54" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Create our own data frame</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>species_counts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>, <span class="st">"Gentoo"</span>),</span>
 <span id="cb54-3"><a href="#cb54-3"></a>                             <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">152</span>, <span class="dv">68</span>, <span class="dv">124</span>))</span>
@@ -1791,6 +1844,11 @@
 <span id="cb97-6"><a href="#cb97-6"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"penguins_mass.pdf"</span>, <span class="at">plot =</span> g, <span class="at">dpi =</span> <span class="dv">300</span>,</span>
 <span id="cb97-7"><a href="#cb97-7"></a>       <span class="at">height =</span> <span class="dv">80</span>, <span class="at">width =</span> <span class="dv">129</span>, <span class="at">units =</span> <span class="st">"mm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section></section>
+<section>
+<section id="wrapping-up" class="title-slide slide level1 center">
+<h1>Wrapping up</h1>
+
 </section>
 <section id="wrapping-up-common-mistakes" class="slide level2 space-list">
 <h2>Wrapping up: Common mistakes</h2>
@@ -1813,26 +1871,29 @@
 <ul>
 <li>RStudio &gt; Help &gt; Cheatsheets &gt; Data Visualization with ggplot2</li>
 <li><a href="https://ggplot2-book.org">ggplot2 book v3</a> <span class="small">(Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen)</span></li>
+<li><a href="https://patchwork.data-imaginist.com/"><code>patchwork</code> website</a></li>
 <li><a href="http://www.cookbook-r.com">Cookbook for R</a> <span class="small">(Winston Chang)</span></li>
 <li><a href="https://r4ds.had.co.nz">R for Data Science</a> <span class="small">(Hadley Wickham &amp; Garrett Grolemund)</span>
 <ul>
 <li><a href="http://r4ds.had.co.nz/data-visualisation.html">Chp 3 Data Visualization</a></li>
 </ul></li>
+<li><a href="http://socviz.co/">Data Visualization: A practical introduction</a> <span class="small">(Kieran Healy)</span></li>
 </ul>
 <div class="fragment">
-<!-- -->
-<h3 class="spacer" style="font-size: 150%" id="thank-you"><strong>Thank you!</strong></h3>
-<div class="small absolute" style="bottom: 0px; ">
-<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/steffilazerte">steffilazerte</a><br>
-<i class="fa-brands fa-mastodon" aria-label="mastodon"></i> <a href="https://fosstodon.org/@steffilazerte">@steffilazerte@fosstodon.org</a><br>
-<i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="https://twitter.com/steffilazerte">@steffilazerte</a><br>
-<i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://steffilazerte.ca">steffilazerte.ca</a></p>
-<p><img data-src="https://steffilazerte.ca/images/logo_eg.png" style="width:30.0%"></p>
-</div>
+<section id="thank-you" class="absolute" style="bottom: 20%; right: 0px; width: 30%; ">
+<h3>Thank you!</h3>
+<p><img data-src="figures/steffi_logo.png"></p>
+<p><span class="small"><i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://steffilazerte.ca">steffilazerte.ca</a></span><br> <span class="small"><i class="fa-solid fa-envelope" aria-label="envelope"></i> <a href="mailto:sel@steffilazerte.ca" class="email">sel@steffilazerte.ca</a></span></p>
+</section>
 <div class="small footnote">
-<p>Slides created with Quarto on 2023-04-03</p>
+<p>Slides created with Quarto on 2023-04-17</p>
 </div>
 </div>
+</section></section>
+<section>
+<section id="extra" class="title-slide slide level1 center">
+<h1>Extra</h1>
+
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn!</h2>

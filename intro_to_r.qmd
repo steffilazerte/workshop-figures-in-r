@@ -3,6 +3,18 @@ params:
   answers: "visible" #"hidden"
 format: 
   revealjs:
+    author-steffi: true
+    title: Creating Figures as an Intro to R
+    subtitle: Using the `ggplot2` package
+    workshop: "TWS 2023"
+    date: today
+    date-format: iso
+    title-slide-attributes: 
+      data-background-image: figures/horst_ggplot2.png
+      data-background-size: "50%"
+      data-background-position: "85% 80%"
+    template-partials:
+      - title-slide.html
     theme: [default, styles.scss]
     width: 1200
     slide-number: true
@@ -11,28 +23,6 @@ execute:
   echo: true
   cache: true
 ---
-
-## Creating Figures as an Intro to R
-
-### Using the `ggplot2` package
-
-![](https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/ggplot2_masterpiece.png){.absolute bottom="10%" right="0" width="60%"}
-
-<!-- Need starting space on firs line to be with par -->
-
-
-
-
-::: {.small .absolute bottom="0"}
-{{< fa brands github >}} [steffilazerte](https://github.com/steffilazerte)  
-{{< fa brands mastodon >}} [\@steffilazerte@fosstodon.org ](https://fosstodon.org/@steffilazerte)   
-{{< fa brands twitter >}} [\@steffilazerte](https://twitter.com/steffilazerte)  
-{{< fa globe >}} [steffilazerte.ca](https://steffilazerte.ca)    
-
-![](https://steffilazerte.ca/images/logo_eg.png){width="30%"}
-:::
-
-[Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations)]{.footnote}
 
 ```{r setup, include = FALSE, cache=FALSE}
 library(here)
@@ -47,11 +37,50 @@ knitr::opts_chunk$set(dpi = 150, fig.width = 8, out.width = "90%",
                       fig.align = "center", fig.asp = 0.45)
 ```
 
-## This is me! {background-color="black" background-image="figures/office3.jpg"}
+# Preamble
 
-## These are my creatures {background-color="black" background-image="figures/creatures.jpg"}
+
+## Online workshops can be challenging
+
+
+:::{.fragment}
+### Consider keeping your video on [(if possible)]{.small}
+
+- Kids? Pets? Spouses? No problem
+- But ultimately, you need be comfortable! [(and you absolutely have the right to privacy)]{.small}
+:::
+
+
+:::{.fragment}
+### Interrupt me!
+
+- Generally keep yourself muted but un-mute anytime to ask questions
+:::
+
+:::{.fragment}
+### Ask Questions!
+
+- Group trouble-shooting is really valuable
+- If you have a problem, others may also (or may have it in the future)
+:::
+
+:::{.fragment}
+### Screen-sharing
+
+- I may ask you to share your screen with the group [(feel free to decline)]{.small}
+- For privacy, close your email etc. Or just share your RStudio window
+:::
+
+## This is me and my creatures {background-color="black" background-image="figures/creatures.jpg"}
 
 ## This is my garden {background-color="black" background-image="figures/garden.jpg"}
+
+## What about you?
+
+- Name
+- Background (Role, Area of study, etc.)
+- Familiarity with R or Programming
+- Creatures (furry, feathery, scaley, green or otherwise)?
 
 ## Outline
 
@@ -165,8 +194,6 @@ steffis_mean * 6
 
 . . .
 
-<!-- ![:box 50%, 80%, 75%](<strong>Moral of the story?</strong><br>Make friends, code in groups, learn together and don't beat yourself up) -->
-
 > **Moral of the story?**<br> Make friends, code in groups, learn together and don't beat yourself up
 
 ## The Goal
@@ -217,10 +244,10 @@ mean(c(1, 2, 3, 4))
 
 ## RStudio vs. R
 
-::: {layout="[[-2, 5, -2, 5, -2]]" layout-valign="center"}
-![RStudio](https://d33wubrfki0l68.cloudfront.net/3099a8a5ab437c8cca2446dfb08383ecfca761ec/0377b/wp-content/uploads/2014/06/rstudio-ball.png){width="20%"}
+::: {layout="[[-2, 5, -2, 7, -2]]" layout-valign="center"}
+![RStudio](figures/RStudio-Ball.png)
 
-![R](https://www.r-project.org/logo/Rlogo.png)
+![R](figures/R.png)
 ::: 
 
 -   **RStudio** is not **R**
@@ -411,9 +438,9 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, colour = specie
 ## Our data set: Palmer Penguins!
 
 ::: {layout="[5,25]" layout-valign="top"}
-![](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/logo.png)
+![](figures/hex_palmerpenguins.png)
 
-![](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png)
+![](figures/horst_lter_penguins.png)
 :::
 
 [Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations)]{.footnote}
@@ -425,17 +452,19 @@ library(palmerpenguins)
 penguins
 ```
 
-![](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/logo.png){.absolute top="0" right="0" width="12%"}
+![](figures/hex_palmerpenguins.png){.absolute top="0" right="0" width="16%"}
 
 [Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations)]{.footnote}
 
 ::: columns
-::: {.column width="30%"}
-![](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png)
+::: {.column width="35%"}
+![](figures/horst_lter_penguins.png)
 :::
 
-::: {.column .fragment width="70%"}
-> Your turn! Run this code and look at the output in the console
+::: {.column .fragment width="65%"}
+> **Your turn!**
+>
+> Run this code and look at the output in the console
 :::
 :::
 
@@ -480,6 +509,8 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 
 ::::
 
+![](figures/hex_palmerpenguins.png){.absolute top=0 right=0 width=16%}
+
 ## Break it down
 
 ```{r}
@@ -507,6 +538,8 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 :::
 
 ::::
+
+![](figures/hex_ggplot2.png){.absolute top=0 right=0 width=16%}
 
 ## Break it down
 
@@ -720,7 +753,7 @@ ggplot(data = penguins, aes(x = sex)) +
 ### You can also provide the counts
 
 ```{r}
-#| fig-asp: 0.3
+#| fig-asp: 0.4
 #| code-line-numbers: "6"
 
 # Create our own data frame
@@ -1276,6 +1309,8 @@ unlink(here("penguins_mass.pdf"))
 unlink(here("penguins_mass.png"))
 ```
 
+# Wrapping up
+
 ## Wrapping up: Common mistakes {.space-list}
 
 - The **package** is `ggplot`**2**, the function is just **`ggplot()`**
@@ -1290,28 +1325,29 @@ unlink(here("penguins_mass.png"))
 
 - RStudio \> Help \> Cheatsheets \> Data Visualization with ggplot2
 - [ggplot2 book v3](https://ggplot2-book.org) [(Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen)]{.small}
+- [`patchwork` website](https://patchwork.data-imaginist.com/)
 - [Cookbook for R](http://www.cookbook-r.com) [(Winston Chang)]{.small}
 - [R for Data Science](https://r4ds.had.co.nz) [(Hadley Wickham & Garrett Grolemund)]{.small}
   - [Chp 3 Data Visualization](http://r4ds.had.co.nz/data-visualisation.html)
+- [Data Visualization: A practical introduction](http://socviz.co/) [(Kieran Healy)]{.small}
 
-::: fragment
-### **Thank you!** {.spacer style="font-size: 150%"}
+::::{.fragment}
 
-::: {.small .absolute bottom="0"}
-{{< fa brands github >}} [steffilazerte](https://github.com/steffilazerte)  
-{{< fa brands mastodon >}} [\@steffilazerte@fosstodon.org ](https://fosstodon.org/@steffilazerte)   
-{{< fa brands twitter >}} [\@steffilazerte](https://twitter.com/steffilazerte)  
-{{< fa globe >}} [steffilazerte.ca](https://steffilazerte.ca)    
+:::{.absolute bottom=20% right=0 width=30%}
+### Thank you! 
 
-![](https://steffilazerte.ca/images/logo_eg.png){width="30%"}
+![](figures/steffi_logo.png)
+
+[{{< fa globe >}} [steffilazerte.ca](https://steffilazerte.ca)]{.small}<br>
+[{{< fa envelope >}} <sel@steffilazerte.ca>]{.small}
 :::
 
-::: {.small .footnote}
+:::{.small .footnote}
 Slides created with Quarto on `r Sys.Date()`
 :::
-:::
+::::
 
-
+# Extra
 
 
 ## Your Turn!
