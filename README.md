@@ -25,14 +25,13 @@ This GitHub repository holds all the information relating to our workshop.
 ---
 
 ### Workshop Resources
-- Slides (no answers, answers are posted after)
+- Slides (no answers)
   - [html](http://steffilazerte.ca/Figures-in-R/) (best)
   - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_sm.pdf)
-<!--
 - Slides (answers)
   - [html](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers.html) (best)
   - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers_sm.pdf)
--->
+
 
 ### Before the workshop
 - [Install R](https://muug.ca/mirror/cran/) 
