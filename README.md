@@ -27,11 +27,11 @@ This GitHub repository holds all the information relating to our workshop.
 
 ### Workshop Resources
 - Slides (no answers)
-  - [html](http://steffilazerte.ca/workshop-figures-in-r/) (best)
-  - [pdf](http://steffilazerte.ca/workshop-figures-in-r/figures_in_r_slides_sm.pdf)
+  - [html](https://steffilazerte.ca/workshop-figures-in-r/) (best)
+  - [pdf](https://steffilazerte.ca/workshop-figures-in-r/figures_in_r_slides_sm.pdf)
 - Slides (answers)
-  - [html](http://steffilazerte.ca/workshop-figures-in-r/slides_answers.html) (best)
-  - [pdf](http://steffilazerte.ca/workshop-figures-in-r/figures_in_r_slides_answers_sm.pdf)
+  - [html](https://steffilazerte.ca/workshop-figures-in-r/slides_answers.html) (best)
+  - [pdf](https://steffilazerte.ca/workshop-figures-in-r/figures_in_r_slides_answers_sm.pdf)
 
 
 ### Before the workshop

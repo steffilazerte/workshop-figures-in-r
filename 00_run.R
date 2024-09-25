@@ -10,7 +10,7 @@ quarto::quarto_render("slides.qmd", output_file = "index.html",  # So is main pa
                       cache_refresh = TRUE,
                       execute_params = list(answers = "hidden"))
 
-
+file.remove("slides.html")
 
 # PDF
 pagedown::chrome_print("slides_answers.html",
