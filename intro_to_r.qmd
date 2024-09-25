@@ -1,12 +1,13 @@
 ---
 params:
-  answers: "visible" #"hidden"
+  answers: "visible" # "hidden"/"visitble" Show/Hide Answer slides
+  online: "hidden"   # "hidden"/"visible" Show/Hide Online workshop slides 
 format: 
   revealjs:
     author-steffi: true
     title: Creating Figures as an Intro to R
     subtitle: Using the `ggplot2` package
-    workshop: "TWS 2023"
+    workshop: "38:494 - Limnology: The science of inland waters - 2024"
     date: today
     date-format: iso
     title-slide-attributes: 
@@ -40,7 +41,7 @@ knitr::opts_chunk$set(dpi = 150, fig.width = 8, out.width = "90%",
 # Preamble
 
 
-## Online workshops can be challenging
+## Online workshops can be challenging {visibility=`r params$online`}
 
 
 :::{.fragment}
@@ -71,9 +72,9 @@ knitr::opts_chunk$set(dpi = 150, fig.width = 8, out.width = "90%",
 - For privacy, close your email etc. Or just share your RStudio window
 :::
 
-## This is me and my creatures {background-color="black" background-image="figures/creatures.jpg"}
+## Me and my creatures {background-color="black" background-image="figures/creatures.jpg"}
 
-## This is my garden {background-color="black" background-image="figures/garden.jpg"}
+## My garden {background-color="black" background-image="figures/garden.jpg"}
 
 ## What about you?
 
@@ -92,9 +93,8 @@ knitr::opts_chunk$set(dpi = 150, fig.width = 8, out.width = "90%",
 
 ### 4. Saving figures
 
-. . .
 
-::: spacer
+:::{.spacer .fragment}
 > **Taken this or a similar workshop before?**
 >
 > During activities consider...
@@ -129,7 +129,7 @@ knitr::opts_chunk$set(dpi = 150, fig.width = 8, out.width = "90%",
 
 ## Use code to tell R what to do
 
-::: fragment
+:::{.fragment}
 ### R, what is the average of numbers 1, 2, 3, 4? {.spacer}
 
 ```{r}
@@ -138,7 +138,7 @@ mean(c(1, 2, 3, 4))
 ```
 :::
 
-::: fragment
+:::{.fragment}
 ### R, save this value for later {.spacer}
 
 ```{r}
@@ -147,7 +147,7 @@ steffis_mean <- mean(c(1, 2, 3, 4))
 ```
 :::
 
-::: fragment
+:::{.fragment}
 ### R, multiply this value by 6 {.spacer}
 
 ```{r}
@@ -166,9 +166,11 @@ steffis_mean * 6
 
 ![](figures/R_powerful2_edit.png){width="70%" fig-align="center" style="margin-top:5%"}
 
-. . .
+:::{.fragment}
 
 [(I made these slides with a mix of R and Quarto)]{.footnote}
+
+:::
 
 ## R is also beautiful
 
@@ -184,7 +186,7 @@ steffis_mean * 6
 
 ## Impost**R** Syndrome
 
-::: {layout="[[-100], [-100], [50,50]]"}
+:::{layout="[[-100], [-100], [50,50]]"}
 ![](figures/impostR_en.png)
 
 ![](figures/imposter.jpg)
@@ -192,9 +194,9 @@ steffis_mean * 6
 
 [David Whittaker]{.footnote}
 
-. . .
-
+:::{.fragment}
 > **Moral of the story?**<br> Make friends, code in groups, learn together and don't beat yourself up
+:::
 
 ## The Goal
 
@@ -202,16 +204,16 @@ steffis_mean * 6
 
 [Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations)]{.footnote}
 
-. . .
-
+:::{.fragment}
 ![](figures/horst_monster2.jpg){.absolute right="10" bottom="150" width="48%"}
+:::
 
 # About R
 
 ## Code, Output, Scripts
 
-::: columns
-::: {.column width="50%"}
+:::{.columns}
+:::{.column width="50%"}
 ### Code
 
 -   The actual commands
@@ -226,7 +228,7 @@ steffis_mean * 6
 -   You should always keep your code in a script
 :::
 
-::: {.column .fragment width="50%"}
+:::{.column .fragment width="50%"}
 ### For example:
 
 ```{r}
@@ -244,11 +246,11 @@ mean(c(1, 2, 3, 4))
 
 ## RStudio vs. R
 
-::: {layout="[[-2, 5, -2, 7, -2]]" layout-valign="center"}
+:::{layout="[[-2, 5, -2, 7, -2]]" layout-valign="center"}
 ![RStudio](figures/RStudio-Ball.png)
 
 ![R](figures/R.png)
-::: 
+:::
 
 -   **RStudio** is not **R**
 -   RStudio is a User Interface or IDE (integrated development environment)
@@ -258,20 +260,20 @@ mean(c(1, 2, 3, 4))
 
 ### `mean()`, `read_csv()`, `ggplot()`, `c()`, etc. {.spacer}
 
-::: fragment
+:::{.fragment}
 -   Always have `()`
 -   Can take **arguments** (think 'options')
     -   `mean(x = c(2, 10, 45))`,
     -   `mean(x = c(NA, 10, 2, 65), na.rm = TRUE)`
 :::
 
-::: fragment
+:::{.fragment}
 -   Arguments defined by **name** or by **position**
     -   With correct position, do not need to specify by name
 :::
 
-::: {.columns .fragment}
-::: {.column width="50%"}
+:::{.columns .fragment}
+:::{.column width="50%"}
 ### By name:
 
 ```{r}
@@ -280,7 +282,7 @@ mean(x = c(1, 5, 10))
 ```
 :::
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ### By position:
 
 ```{r}
@@ -292,14 +294,14 @@ mean(c(1, 5, 10))
 
 ## R documentation
 
-::: columns
-::: {.column width="30%"}
+:::{columns}
+:::{.column width="30%"}
 ```{r}
 ?mean
 ```
 :::
 
-::: {.column .fragment width="70%"}
+:::{.column .fragment width="70%"}
 ![](figures/mean_docs.png)
 :::
 :::
@@ -315,9 +317,9 @@ Generally kept in `vectors` or `data.frames`
    
 :::
 
-:::: {.columns .spacer}
+::::{.columns .spacer}
 
-::: {.column width="45%"}
+:::{.column width="45%"}
 ### Vector (1 dimension)
 ```{r}
 #| code-line-numbers: false
@@ -326,7 +328,7 @@ my_data
 ```
 :::
 
-::: {.column width="55%"}
+:::{.column width="55%"}
 ### Data frame (2 dimensions)
 ```{r}
 #| code-line-numbers: false
@@ -356,7 +358,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, colour = specie
   geom_point()
 ```
  
-::: {.space-list .spacer}
+:::{.space-list .spacer}
 1. **Copy/paste or type** this into the **script** window in RStudio
     - You may have to go to File \> New File \> R Script
 2. Click on the **first line of code**
@@ -372,6 +374,17 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, colour = specie
 #| warning: true
 <<first_code>>
 ```
+
+
+## First Code
+
+```{r}
+#| warning: true
+<<first_code>>
+```
+
+[First, let's look at the components of code, we'll discuss *why* this works later]{.note .absolute top="50%"}
+
 
 ## First Code
 
@@ -431,13 +444,13 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, colour = specie
 
 [Comments]{.note .absolute top="12%" left="35%"}
 
-# Now you know R!
+# Now you have the vocabulary!
 
 **Let's get started**
 
 ## Our data set: Palmer Penguins!
 
-::: {layout="[5,25]" layout-valign="top"}
+:::{layout="[5,25]" layout-valign="top"}
 ![](figures/hex_palmerpenguins.png)
 
 ![](figures/horst_lter_penguins.png)
@@ -456,12 +469,12 @@ penguins
 
 [Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations)]{.footnote}
 
-::: columns
-::: {.column width="35%"}
+:::{.columns}
+:::{.column width="35%"}
 ![](figures/horst_lter_penguins.png)
 :::
 
-::: {.column .fragment width="65%"}
+:::{.column .fragment width="65%"}
 > **Your turn!**
 >
 > Run this code and look at the output in the console
@@ -490,15 +503,15 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 <<basic_plot>>
 ```
 
-:::: {.columns}
+::::{.columns}
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ### `library(palmerpenguins)`
 -   Load the `palmerguins` package
 -   Now we have access to `penguins` data
 :::
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ```{r}
 #| echo: false
 #| fig.asp: 0.75
@@ -519,16 +532,16 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 <<basic_plot>>
 ```
 
-:::: {.columns}
+::::{.columns}
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ### `library(ggplot2)`
 - Load the `ggplot2` package
 - Now we have access to the `ggplot()` function
   - [(and `aes()` and `geom_point()` etc.)]{.small}
 :::
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ```{r}
 #| echo: false
 #| fig.asp: 0.75
@@ -549,8 +562,8 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 <<basic_plot>>
 ```
 
-::: columns
-::: {.column width="50%"}
+:::{.columns}
+:::{.column width="50%"}
 ### `ggplot()`
 
 -   Set the attributes of your plot
@@ -559,7 +572,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 -   Think of this as your plot defaults
 :::
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ```{r}
 #| echo: false
 #| fig.asp: 0.75
@@ -577,8 +590,8 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 <<basic_plot>>
 ```
 
-::: columns
-::: {.column width="50%"}
+:::{.columns}
+:::{.column width="50%"}
 ### `geom_point()`
 
 -   Choose a `geom` function to display the data
@@ -587,7 +600,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 > ggplots are essentially layered objects, starting with a call to `ggplot()`
 :::
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ```{r}
 #| echo: false
 #| fig-asp: 0.75
@@ -599,8 +612,8 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 
 ## Plots are layered
 
-::: columns
-::: {.column .small width="50%"}
+:::{.columns}
+:::{.column .small width="50%"}
 ```{r}
 #| fig-asp: 0.85
 #| fig-width: 5
@@ -609,8 +622,8 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g))
 ```
 :::
 
-::: {.column .small width="50%"}
-::: r-stack
+:::{.column .small width="50%"}
+:::{.r-stack}
 ```{r}
 #| fig-asp: 0.85
 #| fig-width: 5
@@ -619,7 +632,7 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot()
 ```
 
-::: fragment
+:::{.fragment}
 ```{r}
 #| fig-asp: 0.85
 #| fig-width: 5
@@ -629,7 +642,7 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 ```
 :::
 
-::: fragment
+:::{.fragment}
 ```{r}
 #| fig-asp: 0.85
 #| fig-width: 5
@@ -644,11 +657,11 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 
 ## Plots are layered
 
-::: columns
-::: {.column width="50%"}
+:::{.columns}
+:::{.column width="50%"}
 ### You can add multiple layers
 
-::: {.r-stack .small}
+:::{.r-stack .small}
 ```{r}
 #| fig-asp: 0.85
 #| fig-width: 5
@@ -656,7 +669,7 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
   geom_boxplot()
 ```
 
-::: fragment
+:::{.fragment}
 ```{r}
 #| fig-asp: 0.85
 #| fig-width: 5
@@ -669,10 +682,10 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 :::
 :::
 
-::: {.column .fragment}
+:::{.column .fragment}
 ### Order matters
 
-::: small
+:::{.small}
 ```{r}
 #| fig-asp: 0.85
 #| fig-width: 5
@@ -693,10 +706,10 @@ ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
 g <- ggplot(data = penguins, aes(x = sex, y = body_mass_g))
 ```
 
-. . .
+::::{.fragment}
 
-::: columns
-::: {.column width="50%"}
+:::{.columns}
+:::{.column width="50%"}
 ```{r}
 #| fig-asp: 0.75
 #| fig-width: 5
@@ -704,7 +717,7 @@ g
 ```
 :::
 
-::: {.column .fragment width="50%"}
+:::{.column .fragment width="50%"}
 ```{r}
 #| fig-asp: 0.75
 #| fig-width: 5
@@ -712,6 +725,8 @@ g + geom_boxplot()
 ```
 :::
 :::
+
+::::
 
 # More Geoms
 
@@ -733,9 +748,11 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 100)
 ```
 
-. . .
+:::{.fragment}
 
 > **Note**: We only need 1 aesthetic here
+
+:::
 
 ## Geoms: Barplots
 
@@ -899,9 +916,11 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm)) +
   geom_line()
 ```
 
-. . .
+:::{.fragment}
 
 > Not what we're looking for
+
+:::
 
 ## Trendlines / Regression lines
 
@@ -1027,9 +1046,11 @@ g + labs(title = "Bill Length vs. Body Mass",
          colour = "Species", tag = "A")
 ```
 
-. . .
+:::{.fragment}
 
 > **Practice for later:** Add proper labels to some of your previous plots
+
+:::
 
 ## Customizing: Built-in themes
 
@@ -1153,8 +1174,8 @@ ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, colour = sex)) 
 
 ## Customizing: Legends placement
 
-::: columns
-::: {.column width="50%"}
+:::{.columns}
+:::{.column width="50%"}
 ### At the: top, bottom, left, right
 
 ```{r, fig.asp = 0.9, fig.width = 5, out.width = "100%"}
@@ -1162,7 +1183,7 @@ g + theme(legend.position = "top")
 ```
 :::
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 ### Exactly here
 
 ```{r, fig.asp = 0.9, fig.width = 5, out.width = "100%"}
@@ -1253,7 +1274,7 @@ g2 / (g1 + g3 + plot_layout(guides = "collect"))
 
 ### Annotate
 
-::: small
+:::{.small}
 ```{r}
 #| fig-width: 8
 #| fig-asp: 0.6
@@ -1275,7 +1296,7 @@ g2 / (g1 + g3) +
 
 ***Demo***
 
-::: fragment
+:::{.fragment}
 ### `ggsave()`
 
 ```{r}
@@ -1330,6 +1351,7 @@ unlink(here("penguins_mass.png"))
 - [R for Data Science](https://r4ds.had.co.nz) [(Hadley Wickham & Garrett Grolemund)]{.small}
   - [Chp 3 Data Visualization](http://r4ds.had.co.nz/data-visualisation.html)
 - [Data Visualization: A practical introduction](http://socviz.co/) [(Kieran Healy)]{.small}
+- [Using Special Symbols](https://steffilazerte.ca/posts/ggplot-symbols/)
 
 ::::{.fragment}
 
