@@ -1,11 +1,12 @@
-# Figures in R 
+# Making figures in R!
 
 *An introduction to R through the creation of figures with ggplot2!*
 
+<!--
 *[TWS Manitoba Chapter](http://www.tws-mb.com/events/2023/04/18/r-workshop) Workshop*  
 **Tues April 18th 2023 6-8:30pm Central**  
 No cost for members but limited space
-
+-->
 ---
 
 Welcome! 
@@ -26,11 +27,11 @@ This GitHub repository holds all the information relating to our workshop.
 
 ### Workshop Resources
 - Slides (no answers)
-  - [html](http://steffilazerte.ca/Figures-in-R/) (best)
-  - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_sm.pdf)
+  - [html](http://steffilazerte.ca/workshop-figures-in-r/) (best)
+  - [pdf](http://steffilazerte.ca/workshop-figures-in-r/intro_to_r_sm.pdf)
 - Slides (answers)
-  - [html](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers.html) (best)
-  - [pdf](http://steffilazerte.ca/Figures-in-R/intro_to_r_answers_sm.pdf)
+  - [html](http://steffilazerte.ca/workshop-figures-in-r/intro_to_r_answers.html) (best)
+  - [pdf](http://steffilazerte.ca/workshop-figures-in-r/intro_to_r_answers_sm.pdf)
 
 
 ### Before the workshop
